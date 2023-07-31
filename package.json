@@ -1,7 +1,7 @@
 {
   "name": "mini-social-mountain",
   "version": "0.1.0",
-  "main": "server/index.js", 
+  "main": "server/index.js",
   "proxy": "http://localhost:4005",
   "nodemonConfig": {
     "ext": "js,sql",
@@ -54,5 +54,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }

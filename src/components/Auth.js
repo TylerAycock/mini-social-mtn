@@ -7,15 +7,26 @@ const Auth = () => {
   const [password, setPassword] = useState("");
   const [register, setRegister] = useState(true);
   const { dispatch } = useContext(AuthContext);
+  const [counter, setCounter] = useState(0)
 
   const submitHandler = (e) => {
     e.preventDefault();
+    const responses = ['Wrong', 'WRONG AGAIN', 'ONE MORE TIME AND ILL BE MEAN', 'YOUR NEED TO DO BETTER']
+    let counter = 0
     const body = { username, password }
     axios.post(register ? "/register" : "/login", body)
       .then(res => {
         dispatch({ type: "LOGIN", payload: res.data })
       })
-      .catch(err => console.log(err))
+      .catch(err => {
+        console.log(err)
+        if(counter === responses.length){
+          return setCounter(0)
+        }
+        alert(`${responses[counter]}`)
+        let newCounter = counter + 1
+        setCounter(newCounter)
+      })
     console.log("submitHandler called");
   };
 

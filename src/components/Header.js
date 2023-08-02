@@ -4,7 +4,7 @@ import AuthContext from '../store/authContext'
 import logo from '../assets/dm-logo-white.svg'
 
 const Header = () => {
-    const { state } = useContext(AuthContext)
+    const { state, dispatch } = useContext(AuthContext)
     const styleActiveLink = ({ isActive }) => {
         return {
             color: isActive ? '#f57145' : ''
@@ -31,7 +31,7 @@ const Header = () => {
                                 <NavLink style={styleActiveLink} to='form'>Add Post</NavLink>
                             </li>
                             <li>
-                                <NavLink style={styleActiveLink} to='auth'>Login or Register</NavLink>
+                                <button className='logout-btn' onClick={() => dispatch({type: 'LOGOUT'})}>Logout</button>
                             </li>
                         </ul>
                         :

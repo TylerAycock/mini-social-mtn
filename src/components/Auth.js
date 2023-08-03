@@ -12,7 +12,7 @@ const Auth = () => {
   const submitHandler = (e) => {
     e.preventDefault();
     const responses = ['Wrong', 'WRONG AGAIN', 'ONE MORE TIME AND ILL BE MEAN', 'YOUR NEED TO DO BETTER']
-    let counter = 0
+    setCounter(0)
     const body = { username, password }
     axios.post(register ? "/register" : "/login", body)
       .then(res => {
@@ -20,7 +20,7 @@ const Auth = () => {
       })
       .catch(err => {
         console.log(err)
-        if(counter === responses.length){
+        if (counter === responses.length) {
           return setCounter(0)
         }
         alert(`${responses[counter]}`)
